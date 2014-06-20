@@ -35,7 +35,31 @@ El resultado de estas traducciones será hospedado en la página oficial de Soft
 
 El **objetivo** es facilitar el aprendizaje en los primeros pasos, pero también a familiarizarse con el vocabulario técnico en inglés que es la *lingua franca de la informática*. 
 
-Los archivos e imágenes del contenido original mantendrán su nombre, añadiendo .es a la extensión en caso de haber cambios. Por ejemplo, `introducion.md` se transformará a `introduction.es.md`
+Los archivos e imágenes del contenido original mantendrán su nombre, y estructura pero en la carpeta `translations/es/` creada a tal efecto.
+
+La idea principal es actualizar el repositorio con los cambios que hagan en el original y al actualizar cada fichero - cada commit - haciendo referencia al último número del commit del original.
+Haciendo esto, cuando algo cambie en algún fichero podemos ver a que línea se refiere.
+
+#### Ejemplo, traducción de `01-shell.md`:
+
+Se copia la lección (y, si lo tiene, el contenido necesario para la misma) del original, en este caso:
+
+Vamos a,
+`franktoffel/swcarpentry-es/novice/shell/01-shell.md`
+
+y copiamos todo el contenido que vayamos traduciendo dentro manteniendo la misma estructura, así tendríamos:
+
+`franktoffel/swcarpentry-es/translations/es/swcarpentry-es/novice/shell/01-shell.md` 
+
+Ahora, cuando hagamos el commit de dicho fichero traducido se pone algo como:
+`[es] - Translation of 01-shell.md based on a6fd62d2ba`
+
+Ese número se ve en el log de cada fichero con 'git log fichero' o en la página de history del repositorio.
+
+Así, cuando hay nuevas actualizaciones los traductores podemos ver que ha cambiado directamente en la página de git, por ejemplo:
+https://github.com/franktoffel/swcarpentry-es/commit/a6fd62d2baffad9d41f7391c1ddfd4d37ad3048f
+
+De esta forma, si se realizan cambios, podremos detectarlos y comparar ambas versiones. Finalmente se mandará un pull request a la repo original con los archivos traducidos.
 
 ###  Coordinación
 
