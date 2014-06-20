@@ -3,10 +3,6 @@ swcarpentry-es
 
 Este repositorio pretende ser un punto de partida para la traducción de las lecciones de http://software-carpentry.org/lessons.html
 
-Si quieres saber más puedes seguir leyendo sobre este proyecto aquí:
-
-[+Información swcarpentry-es](https://github.com/franktoffel/swcarpentry-es/tree/master/translations/es)
-
 ### Motivación
 
 [Software Carpentry](http://software-carpentry.org/) tiene como misión enseñar a los investigadores habilidades básicas informáticas aplicables en el ámbito científico: las herramientas y técnicas que ayudarán a hacer más cosas en menos tiempo y de forma menos dolorosa. Los instructores son voluntarios y han impartido más de un centenar de eventos a miles de científicos en los últimos dos años y medio. Todos los materiales de las lecciones son libremente reutilizables bajo la licencia [Creative Commons](http://creativecommons.org/licenses/by/3.0/es/deed.es),
