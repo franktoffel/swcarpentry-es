@@ -18,16 +18,17 @@ La mayor parte del contenido se puede editar directamente en GitHub como texto p
 
 Existen también lecciones de Python y SQL que están escritas en Notebooks de IPython. Si desconoces IPython Notebook, dale un vistazo a este [curso de introducción a Python](http://cacheme.org/curso-online-python-cientifico-ingenieros/) (y [cómo instalarlo](http://cacheme.org/curso-online-python-cientifico-ingenieros/)).
 
-El contenido se divide en los siguientes temas, entre paréntesis se indica si están asignados a algún voluntario o son libres:
+El contenido se divide en los siguientes temas, entre paréntesis se indica si han sido asignados a algún voluntario están libres:
 
 *   [Introduction](http://software-carpentry.org/v5/intro.html) (preasignado)
-*	[The Unix Shell](http://software-carpentry.org/v5/novice/shell/index.html)  (¡libre!)
+*	[The Unix Shell](http://software-carpentry.org/v5/novice/shell/index.html)  (preasignado)
 *	[Version Control with Git](http://software-carpentry.org/v5/novice/git/index.html)  (¡libre!)
 *	[Programming with Python](http://software-carpentry.org/v5/novice/python/index.html) (preasignado)
 *	[Using Databases and SQL](http://software-carpentry.org/v5/novice/sql/index.html) (¡libre!)
 *	[A Few Extras](http://software-carpentry.org/v5/novice/extras/index.html) (¡libre!)
 *	[Instructor's Guide](http://software-carpentry.org/v5/novice/teaching/index.html) (¡libre!)
 
+Nota: Para escoger la que más te guste accede a la [página de Issues](https://github.com/franktoffel/swcarpentry-es/issues?state=open).
 
 ###  Guía de estilo
 
