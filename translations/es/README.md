@@ -52,6 +52,7 @@ y copiamos todo el contenido que vayamos traduciendo dentro manteniendo la misma
 `franktoffel/swcarpentry-es/translations/es/swcarpentry-es/novice/shell/01-shell.md` 
 
 Ahora, cuando hagamos el commit de dicho fichero traducido se pone algo como:
+
 `[es] - Translation of 01-shell.md based on a6fd62d2ba`
 
 Ese número se ve en el log de cada fichero con 'git log fichero' o en la página de history del repositorio.
