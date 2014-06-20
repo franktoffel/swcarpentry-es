@@ -48,7 +48,7 @@ Se copia la lección (y, si lo tiene, el contenido necesario para la misma) del 
 Vamos a,
 `franktoffel/swcarpentry-es/novice/shell/01-shell.md`
 
-y copiamos todo el contenido que vayamos traduciendo dentro manteniendo la misma estructura, así tendríamos:
+y copiamos todo el contenido que vayamos traduciendo dentro de la ruta `translations/es` pero manteniendo la misma estructura y nombre de archivo. Así, para el ejemplo, quedaría como:
 
 `franktoffel/swcarpentry-es/translations/es/swcarpentry-es/novice/shell/01-shell.md` 
 
