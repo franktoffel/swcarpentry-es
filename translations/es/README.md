@@ -20,7 +20,7 @@ Existen también lecciones de Python y SQL que están escritas en Notebooks de I
 
 El contenido se divide en los siguientes temas, entre paréntesis se indica si han sido asignados a algún voluntario están libres:
 
-*   [Introduction](http://software-carpentry.org/v5/intro.html) (preasignado)
+* [Introduction](http://software-carpentry.org/v5/intro.html) (preasignado)
 *	[The Unix Shell](http://software-carpentry.org/v5/novice/shell/index.html)  (preasignado)
 *	[Version Control with Git](http://software-carpentry.org/v5/novice/git/index.html)  (¡libre!)
 *	[Programming with Python](http://software-carpentry.org/v5/novice/python/index.html) (preasignado)
@@ -63,7 +63,15 @@ https://github.com/franktoffel/swcarpentry-es/commit/a6fd62d2baffad9d41f7391c1dd
 
 De esta forma, si se realizan cambios, podremos detectarlos y comparar ambas versiones. Finalmente se mandará un pull request a la repo original con los archivos traducidos.
 
-###  Coordinación
+### Colaboradores
+
+* Fran Navarro - [@franktoffel](https://github.com/franktoffel), coordinación.
+* David PS [@dpshelio](https://github.com/dpshelio), Linux Shell.
+* Javier J. Gutiérrez [@javierj](https://github.com/javierj), revisión.
+* Daniel Domene y Zuri Bauer, Python.
+* Jorge Bernabé, introducción.
+
+###  Contacto
 
 La organización de estas traducciones las realiza Fran Navarro de [CAChemE.org](http://cacheme.org), puedes contactar con nosotros mediante el [formulario de contacto](http://cacheme.org/contacto/).
 
