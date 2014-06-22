@@ -69,7 +69,8 @@ De esta forma, si se realizan cambios, podremos detectarlos y comparar ambas ver
 * David PS [@dpshelio](https://github.com/dpshelio), Linux Shell.
 * Javier J. Gutiérrez [@javierj](https://github.com/javierj), revisión.
 * Iván González [@iglpdc](https://github.com/iglpdc), Git.
-* Daniel Domene y Zuri Bauer, Python.
+* Daniel Domene & Zuri Bauer, Python.
+* Juan Luis Cano ([Pybonacci](http://pybonacci.wordpress.com)) [@Juanlu001](https://github.com/Juanlu001), Python (revisión).
 * Jorge Bernabé, introducción.
 
 ###  Contacto
