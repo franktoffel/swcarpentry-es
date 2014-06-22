@@ -22,7 +22,7 @@ El contenido se divide en los siguientes temas, entre paréntesis se indica si h
 
 * [Introduction](http://software-carpentry.org/v5/intro.html) (preasignado)
 *	[The Unix Shell](http://software-carpentry.org/v5/novice/shell/index.html)  (preasignado)
-*	[Version Control with Git](http://software-carpentry.org/v5/novice/git/index.html)  (¡libre!)
+*	[Version Control with Git](http://software-carpentry.org/v5/novice/git/index.html)  (preasignado)
 *	[Programming with Python](http://software-carpentry.org/v5/novice/python/index.html) (preasignado)
 *	[Using Databases and SQL](http://software-carpentry.org/v5/novice/sql/index.html) (¡libre!)
 *	[A Few Extras](http://software-carpentry.org/v5/novice/extras/index.html) (¡libre!)
@@ -68,6 +68,7 @@ De esta forma, si se realizan cambios, podremos detectarlos y comparar ambas ver
 * Fran Navarro - [@franktoffel](https://github.com/franktoffel), coordinación.
 * David PS [@dpshelio](https://github.com/dpshelio), Linux Shell.
 * Javier J. Gutiérrez [@javierj](https://github.com/javierj), revisión.
+* Iván González [@iglpdc](https://github.com/iglpdc), Git.
 * Daniel Domene y Zuri Bauer, Python.
 * Jorge Bernabé, introducción.
 
