@@ -78,6 +78,8 @@ De esta forma, si se realizan cambios, podremos detectarlos y comparar ambas ver
 
 La organización de estas traducciones las realiza Fran Navarro de [CAChemE.org](http://cacheme.org), puedes contactar con nosotros mediante el [formulario de contacto](http://cacheme.org/contacto/).
 
+Disponemos también de una lista de correo específica ([spanish {arr} lists.software-carpentry.org](http://lists.software-carpentry.org/mailman/listinfo/spanish_lists.software-carpentry.org)) para la traducción de las lecciones, para suscribirse puedes seguir [este enlace](http://lists.software-carpentry.org/mailman/listinfo/spanish_lists.software-carpentry.org).
+
 Disclaimer
 ---------
 ¡Te recordamos que esto es una labor de voluntarios y cualquier ayuda, pull request, crítica o sugerencia son bienvenidas! 
