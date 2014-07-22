@@ -1,137 +1,137 @@
 ---
 layout: lesson
 root: ../..
-title: Introducing the Shell
+title: Introducción a la Terminal
 ---
 <div class="objectives" markdown="1">
 
-#### Objectives
-*   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
-*   Explain when and why command-line interfaces should be used instead of graphical interfaces.
+#### Objectivos
+*   Explicar cómo la *shell* (terminal) relaciona el teclado, la pantalla, el sistema operativo y los programas del usuario.
+*   Explicar cuándo y por qué la shell se deberían usar en vez de interfaces gráficas.
 
 </div>
 
-Nelle Nemo, a marine biologist,
-has just returned from a six-month survey of the
-[North Pacific Gyre](http://en.wikipedia.org/wiki/North_Pacific_Gyre),
-where she has been sampling gelatinous marine life in the
-[Great Pacific Garbage Patch](http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch).
-She has 300 samples in all, and now needs to:
+Nelle Nemo, un biólogo marino,
+acaba de regresar de una expedición de 6 meses del
+[Giro del Pacífico Norte](http://es.wikipedia.org/wiki/Giro_oce%C3%A1nico#Mayores_giros),
+donde ha estado tomando muestras de la vida marina gelatinosa en el
+[Gran mancha de basura del Pacífico](http://es.wikipedia.org/wiki/Sopa_de_pl%C3%A1stico).
+Ha obtenido 300 muestras en total y ahora necesita:
 
-1.  Run each sample through an assay machine
-    that will measure the relative abundance of 300 different proteins.
-    The machine's output for a single sample is
-    a file with one line for each protein.
-2.  Calculate statistics for each of the proteins separately
-    using a program her supervisor wrote called `goostat`.
-3.  Compare the statistics for each protein
-    with corresponding statistics for each other protein
-    using a program one of the other graduate students wrote called `goodiff`.
-4.  Write up.
-    Her supervisor would really like her to do this by the end of the month
-    so that her paper can appear in an upcoming special issue of *Aquatic Goo Letters*.
+1.  Pasar cada muestra a través de una máquina de ensayos
+    que medirá la abundancia relativa de 300 proteínas diferentes.
+    La máquina produce por cada muestra un
+    archivo con una línea para cada proteína.
+2.  Calcular las estadísticas para cada una de las proteínas por separado
+    empleando un programa que su supervisor escribió llamado `goostat`.
+3.  Comparar las estadísticas para cada proteína
+    con las correspondientes estadísticas  para cada otra proteína
+	empleando `goodiff`, un programa que otro estudiante de doctorado escribió.
+4.  Redactar un artículo.
+    A su supervisor realmente le gustaría que terminara esto a finales de mes
+    para que su artículo pueda aparecer en la siguiente edición especial de *Aquatic Goo Letters*.
 
-It takes about half an hour for the assay machine to process each sample.
-The good news is,
-it only takes two minutes to set each one up.
-Since her lab has eight assay machines that she can use in parallel,
-this step will "only" take about two weeks.
+La máquina de ensayos tarda media hora en procesar cada muestra.
+La buenas noticia es
+que sólo tarda dos minutos en preparar cada una.
+Como su laboratorio tiene ocho máquinas de ensayos, ella puede usarlas en paralelo
+y este paso le llevará "sólo" dos semanas.
 
-The bad news is that if she has to run `goostat` and `goodiff` by hand,
-she'll have to enter filenames and click "OK" 45,150 times
-(300 runs of `goostat`, plus 300&times;299/2 runs of `goodiff`).
-At 30 seconds each,
-that will take more than two weeks.
-Not only would she miss her paper deadline,
-the chances of her typing all of those commands right are practically zero.
+La mala noticia es que si ella tiene que ejecutar `goostat` y `goodiff` a mano,
+tendrá que escribir los nombres de los archivos y pulsar "OK" 45150 veces
+(300 ejecuciones para `goostat`, más 300&times;299/2 ejecuciones de `goodiff`).
+Si le lleva 30 segundos para cada uno de ellas,
+este proceso le llevará más de 2 semanas.
+No solo se pasaría de la fecha límite de entrega del artículo,
+sino que las probabilidades de que ella escriba correctamente todos y cada uno de los comandos son prácticamente cero.
 
-The next few lessons will explore what she should do instead.
-More specifically,
-they explain how she can use a command shell
-to automate the repetitive steps in her processing pipeline
-so that her computer can work 24 hours a day while she writes her paper.
-As a bonus,
-once she has put a processing pipeline together,
-she will be able to use it again whenever she collects more data.
+Las siguientes lecciones explorarán lo que ella debería hacer en vez de lo anterior.
+Más específicamente,
+explican cómo se puede emplear un comando shell
+para automatizar pasos repetitivos en el transcurso de su proyecto
+consiguiendo que su ordenador pueda trabajar 24 horas al día mientras ella escribe su artículo.
+Además,
+una vez que ella haya puesto su trabajo junto,
+será capaz de emplearlo de nuevo cuando colecte nuevas muestras.
 
-### What and Why
+### Qué y por qué
 
-At a high level, computers do four things:
+A modo de resumen, los ordenadores hacen cuatro cosas:
 
--   run programs;
--   store data;
--   communicate with each other; and
--   interact with us.
+-   Ejecutar programas,
+-   almacenar información,
+-   comunicarse entre ellas, e
+-   interactuar con nosotros.
 
-They can do the last of these in many different ways,
-including direct brain-computer links and speech interfaces.
-Since these are still in their infancy,
-most of us use windows, icons, mice, and pointers.
-These technologies didn't become widespread until the 1980s,
-but their roots go back to Doug Engelbart's work in the 1960s,
-which you can see in what has been called
-"[The Mother of All Demos](http://www.youtube.com/watch?v=a11JDLBXtPQ)".
+Pueden hacer el último punto de esta lista de diversas maneras,
+incluyendo enlaces directos con nuestro cerebro e interfaces habladas. 
+Como estas están aún su infancia,
+la mayoría de nosotros usa ventanas, iconos, el ratón y punteros.
+Estas tecnologías no se generalizaron hasta los ochenta,
+pero sus raíces se remontan al trabajo de Doug Engelbart en los sesenta,
+que puedes ver en lo que ha sido llamado
+"[La madre de todos los demos](http://www.youtube.com/watch?v=a11JDLBXtPQ)".
 
-Going back even further,
-the only way to interact with early computers was to rewire them.
-But in between,
-from the 1950s to the 1980s,
-most people used line printers.
-These devices only allowed input and output of the letters, numbers, and punctuation found on a standard keyboard,
-so programming languages and interfaces had to be designed around that constraint.
+Yendo incluso más atrás,
+la única manera de interactuar con los primeros ordenadores era recableándolos.
+Pero entre medias,
+desde los años cincuenta hasta los ochenta,
+la mayoría de la gente usaba impresoras de líneas.
+Estos aparatos sólo permitían la entrada y salida de letras, números y la puntuación encontrada en un teclado estándar,
+con lo que los lenguajes de programación y las interfaces tenían que ser diseñadas alrededor de esta restricción.
 
-This kind of interface is called a
-[command-line interface](../../gloss.html#cli), or CLI,
-to distinguish it from the
-[graphical user interface](../../gloss.html#gui), or GUI,
-that most people now use.
-The heart of a CLI is a [read-evaluate-print loop](../../gloss.html#repl), or REPL:
-when the user types a command and then presses the enter (or return) key,
-the computer reads it,
-executes it,
-and prints its output.
-The user then types another command,
-and so on until the user logs off.
+Este tipo de interfaz se denomina
+[*command-line interface*](../../gloss.html#cli)(interfaz de línea de comandos), o CLI,
+para distinguirlo de la
+[*graphical user interface*](../../gloss.html#gui)(interfaz gráfica de usuario, o GUI,
+usada ahora por la mayoría de la gente.
+El nucleo de una CLI es un [*read-evaluate-print loop*](../../gloss.html#repl)(bucle leer-evaluar-imprimir), o REPL:
+cuando el usuario escribe un comando y pulsa Enter (o return),
+la computadora lo lee,
+lo ejecuta
+y muestra o imprime su salida.
+El usuario entonces escribe otro comando
+y así sucesivamente hasta que el usuario cierra su sesión.
 
-This description makes it sound as though the user sends commands directly to the computer,
-and the computer sends output directly to the user.
-In fact,
-there is usually a program in between called a
-[command shell](../../gloss.html#shell).
-What the user types goes into the shell;
-it figures out what commands to run and orders the computer to execute them.
+Esta descripción hace que suene como si el usuario envía comandos directamente a la computadora,
+y la computadora envía la salida directamente al usuario.
+En realidad,
+normalmente hay un programa en medio llamado
+[*command shell*](../../gloss.html#shell).
+Lo que el usuario escribe se ingresa en la shell;
+que reconoce qué comandos hay que ejecutar y ordena al ordenador que lo haga.
 
-A shell is a program like any other.
-What's special about it is that its job is to run other programs
-rather than to do calculations itself.
-The most popular Unix shell is Bash,
-the Bourne Again SHell
-(so-called because it's derived from a shell written by Stephen Bourne&mdash;this
-is what passes for wit among programmers).
-Bash is the default shell on most modern implementations of Unix,
-and in most packages that provide Unix-like tools for Windows.
+La shell es un programa como cualquier otro.
+Lo que lo hace especial es que su trabajo es ejecutar otros programas 
+más que hacer cálculos por sí mismo.
+La Unix shell más popular es Bash,
+el *Bourne Again Shell*
+(llamado así porque está derivado de una shell escrita por Stephen Bourne&mdash;esto
+es lo que se conoce como humor entre programadores).
+Bash es la shell por defecto en la mayoría de las implementaciones modernas de Unix
+y en la mayoría de los paquetes que proporcionan herramientas de tipo Unix para Windows.
 
-Using Bash or any other shell
-sometimes feels more like programming than like using a mouse.
-Commands are terse (often only a couple of characters long),
-their names are frequently cryptic,
-and their output is lines of text rather than something visual like a graph.
-On the other hand,
-the shell allows us to combine existing tools in powerful ways with only a few keystrokes
-and to set up pipelines to handle large volumes of data automatically.
-In addition,
-the command line is often the easiest way to interact with remote machines.
-As clusters and cloud computing become more popular for scientific data crunching,
-being able to drive them is becoming a necessary skill.
+A veces, usar Bash o cualquier otro shell
+se parece más a programación que emplear un ratón.
+Los comandos son concisos (a veces de tan sólo un par de caracteres),
+sus nombres son frecuentemente enigmáticos,
+y sus respuestas son líneas de texto en vez de algo visual como una gráfica.
+Por otro lado,
+el shell nos permite combinar las herramientas existentes de maneras poderosas con solo un par de pulsaciones
+y configurar procesos con grandes cantidades de información automáticamente.
+Además,
+la línea de comando es a menudo el modo más sencillo de interactuar con máquinas remotas.
+Como los clústers y la computación en la nube se está convirtiendo más popular para la reducción de datos científicos,
+ser capaz de manejarlos se está convirtiendo en una habilidad necesaria.
 
 <div class="keypoints" markdown="1">
 
-#### Key Points
-*   A shell is a program whose primary purpose is to read commands and run other programs.
-*   The shell's main advantages are its high action-to-keystroke ratio,
-    its support for automating repetitive tasks,
-    and that it can be used to access networked machines.
-*   The shell's main disadvantages are its primarily textual nature
-    and how cryptic its commands and operation can be.
+#### Puntos Clave
+*   Una shell es un programa cuyo propósito primario es leer comandos y ejecutar otros programas.
+*   Las principales ventajas de la shell son su elevada relación acción-por-pulsación,
+    su apoyo para automatizar tareas repetitivas
+    y que puede ser usado para acceder a otras máquinas en la red.
+*   Las principales desventajas de la shell son su naturaleza primaria textual
+    y cuan enigmáticas pueden ser sus comandos y operaciones.
 
 </div>
