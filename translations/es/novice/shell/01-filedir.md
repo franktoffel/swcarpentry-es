@@ -1,45 +1,45 @@
 ---
 layout: lesson
 root: ../..
-title: Files and Directories
+title: Archivos y Directorios
 ---
 <div class="objectives" markdown="1">
 
-#### Objectives
-*   Explain the similarities and differences between a file and a directory.
-*   Translate an absolute path into a relative path and vice versa.
-*   Construct absolute and relative paths that identify specific files and directories.
-*   Explain the steps in the shell's read-run-print cycle.
-*   Identify the actual command, flags, and filenames in a command-line call.
-*   Demonstrate the use of tab completion, and explain its advantages.
+#### Objectivos
+*   Explicar las similitudes y diferencias entre un archivo y un directorio.
+*   Convertir una ruta absoluta en una ruta relativa y viceversa.
+*   Construir rutas absolutas y relativas que identifiquen archivos y directorio específicos.
+*   Explicar los pasos del ciclo leer-ejecutar-imprimir de la shell.
+*   Identificar los comandos, señales y nombres de archivos en la línea de comandos.
+*   Demostrar el uso de completado por tabulador y explicar su ventajas.
 
 </div>
 
-The part of the operating system responsible for managing files and directories
-is called the [file system](../../gloss.html#filesystem).
-It organizes our data into files,
-which hold information,
-and directories (also called "folders"),
-which hold files or other directories.
+La parte del sistema operativo responsable de manejar archivos y directorios
+se llama [*file system*](../../gloss.html#filesystem) (sistema de archivos).
+Su función es organizar nuestra información en archivos,
+que contienen la información,
+y directorios (también llamados “carpetas”)
+que contienen a su vez archivos u otros directorios.
 
-Several commands are frequently used to create, inspect, rename, and delete files and directories.
-To start exploring them,
-let's open a shell window:
+Varios comandos se emplean a menudo para crear, inspeccionar, renombrar y eliminar archivos y directorios.
+Para comenzar a explorarlos,
+abramos una ventana de shell:
 
 ~~~
 $
 ~~~
 {:class="in"}
 
-The dollar sign is a [prompt](../../gloss.html#prompt),
-which shows us that the shell is waiting for input;
-your shell may show something more elaborate.
+El signo del dólar es un [*prompt*](../../gloss.html#prompt) (indicador),
+que nos muestra que la shell está esperando que introduzcas la entrada;
+tu Shell tal vez muestre algo más elaborado.
 
-Type the command `whoami`,
-then press the Enter key (sometimes marked Return) to send the command to the shell.
-The command's output is the ID of the current user,
-i.e.,
-it shows us who the shell thinks we are:
+Escribe el comando `whoami`,
+y presiona la tecla Enter (algunas veces aparece como Return) para enviar el comando a la shell.
+La salida del comando es la ID del actual usuario,
+es decir,
+nos muestra quién cree la Shell que somos:
 
 ~~~
 $ whoami
@@ -50,25 +50,24 @@ vlad
 ~~~
 {:class="out"}
 
-More specifically, when we type `whoami` the shell:
+Más específicamente, cuando escribimos`whoami` la shell:
 
-1.  finds a program called `whoami`,
-2.  runs that program,
-3.  displays that program's output, then
-4.  displays a new prompt to tell us that it's ready for more commands.
+1.  encuentra un programa llamado `whoami`,
+2.  ejecuta ese programa,
+3.  muestra la salida de ese programa, y entonces
+4.  muestra un nuevo *prompt* para decirnos que está listo para más comandos.
 
-Next,
-let's find out where we are by running a command called `pwd`
-(which stands for "print working directory").
-At any moment,
-our [current working directory](../../gloss.html#current-working-directory)
-is our current default directory,
-i.e.,
-the directory that the computer assumes we want to run commands in
-unless we explicitly specify something else.
-Here,
-the computer's response is `/users/vlad`,
-which is Vlad's [home directory](../../gloss.html#home-directory):
+A continuación,
+descubramos dónde estamos mediante la ejecución del comando  `pwd`
+(que viene del inglés *"print working directory"* - imprimir directorio de trabajo).
+En cualquier  momento,
+nuestro [*current working directory*](../../gloss.html#current-working-directory) (directorio de trabajo actual) es nuestro directorio actual por defecto,
+es decir,
+el directorio que el ordenador asume que queremos para ejecutar comandos
+a menos que explícitamente especifiquemos lo contrario.
+Aquí,
+la respuesta del ordenador es `/users/vlad`,
+que es el directorio [*home*](../../gloss.html#home-directory) (de inicio) de Vlad:
 
 ~~~
 $ pwd
@@ -79,57 +78,57 @@ $ pwd
 ~~~
 {:class="out"}
 
-> #### Alphabet Soup
-> 
-> If the command to find out who we are is `whoami`, the command to find
-> out where we are ought to be called `whereami`, so why is it `pwd`
-> instead? The usual answer is that in the early 1970s, when Unix was
-> first being developed, every keystroke counted: the devices of the day
-> were slow, and backspacing on a teletype was so painful that cutting the
-> number of keystrokes in order to cut the number of typing mistakes was
-> actually a win for usability. The reality is that commands were added to
-> Unix one by one, without any master plan, by people who were immersed in
-> its jargon. The result is as inconsistent as the roolz uv Inglish
-> speling, but we're stuck with it now.
+> #### Sopa de letras
+>
+> Si el comando para descubrir quién somos es `whoami`, el comando para encontrar
+> dónde estamos debería llamarse `whereami`, por tanto, ¿por qué se usa `pwd`?
+> La respuesta más común es que a principios de los setenta, cuando se 
+> estaba comenzando a desarrollarse Unix, cada pulsación contaba: los aparataos de la época
+> eran lentos y retroceder un espacio en un teletipo era muy costoso con lo que disminuir
+> el número de pulsaciones para disminuir el número de posibles errores escribiendo era
+> realmente una victoria. La realidad es que los comandos se fueron añadiendo a
+> Unix uno a uno, sin ningún plan maestro, por gente que estaba inmersa en
+> su propia jerga. El resultado es tan inconsistente como las reglas ortográficas del inglés
+> con las que estamos atascados hoy en día.
 
-To understand what a "home directory" is,
-let's have a look at how the file system as a whole is organized.
-At the top is the [root directory](../../gloss.html#root-directory)
-that holds everything else.
-We refer to it using a slash character `/` on its own;
-this is the leading slash in `/users/vlad`.
+Para comprender lo que es un directorio *"home"*,
+echemos un vistazo a cómo se organiza un sistema de archivos.
+En un principio, está el directorio [*root*](../../gloss.html#root-directory) (raíz)
+que contiene todo lo demás.
+Nos referimos a él empleando la barra inclinada `/`;
+esta es la barra inicial de `/users/vlad`.
 
-Inside that directory are several other directories:
-`bin` (which is where some built-in programs are stored),
-`data` (for miscellaneous data files),
-`users` (where users' personal directories are located),
-`tmp` (for temporary files that don't need to be stored long-term),
-and so on:
+Dentro de ese directorio hay otros directorios:
+`bin` (que es donde algunos programas compilados se almacenan),
+`data` (para archivos de información diversa),
+`users` (donde se localizan los directorios personales del usuario)
+`tmp` (para archivos temporales que no necesitan ser almacenados durante mucho tiempo)
+y otros:
 
-<img src="img/filesystem.svg" alt="The Filesystem" />
+<img src="img/filesystem.svg" alt="El sistema de ficheros" />
 
-We know that our current working directory `/users/vlad` is stored inside `/users`
-because `/users` is the first part of its name.
-Similarly,
-we know that `/users` is stored inside the root directory `/`
-because its name begins with `/`.
+Sabemos que nuestro directorio de trabajo actual `/users/vlad` está dentro de `/users`
+porque `/users` es la primera parte de su nombre.
+Igualmente,
+sabemos que `/users` está almacenado dentro del directorio *root*
+porque su nombre comienza con `/`.
 
-Underneath `/users`,
-we find one directory for each user with an account on this machine.
-The Mummy's files are stored in `/users/imhotep`,
-Wolfman's in `/users/larry`,
-and ours in `/users/vlad`,
-which is why `vlad` is the last part of the directory's name.
+Debajo de `/users`,
+encontramos un directorio para cada usuario con una cuenta en dicha máquina.
+Los archivos de Mummy están almacenados en `/users/imhotep`,
+los de Wolfman en `/users/larry`
+y los nuestros en `/users/vlad`,
+lo cual explica por qué vlad es la última parte del nombre del directorio.
 
-<img src="img/home-directories.svg" alt="Home Directories" />
+<img src="img/home-directories.svg" alt="Directorios home" />
 
-> Notice that there are two meanings for the `/` character.
-> When it appears at the front of a file or directory name,
-> it refers to the root directory. When it appears *inside* a name,
-> it's just a separator.
+> Date cuenta que hay dos significados para el carácter `/`.
+> Cuando aparece delante de un archivo o nombre de directorio,
+> se refiere al directorio *root*. Cuando aparece dentro de un nombre
+> es solo un separador.
 
-Let's see what's in Vlad's home directory by running `ls`,
-which stands for "listing":
+Veamos que hay en el directorio *home* de Vlad mediante la ejecución de `ls`,
+que proviene del inglés *listing* (listado).
 
 ~~~
 $ ls
@@ -142,12 +141,12 @@ solar.pdf    swc
 ~~~
 {:class="out"}
 
-<img src="img/vlad-homedir.svg" alt="Vlad's Home Directory" />
+<img src="img/vlad-homedir.svg" alt="Directorio Home de Vlad" />
 
-`ls` prints the names of the files and directories in the current directory in alphabetical order,
-arranged neatly into columns.
-We can make its output more comprehensible by using the [flag](../../gloss.html#command-line-flag) `-F`,
-which tells `ls` to add a trailing `/` to the names of directories:
+`ls` muestra los nombres de los archivos y directorios en la actual dirección en orden alfabético,
+dispuestos ordenadamente en columnas.
+Podemos hacer su salida más comprensible mediante el empleo de la [*flag*](../../gloss.html#command-line-flag) (o indicador) `-F`,
+que le dice a ls que añada una `/` al final de cada uno de los nombres de los directorios:
 
 ~~~
 $ ls -F
@@ -160,42 +159,41 @@ solar.pdf    swc/
 ~~~
 {:class="out"}
 
-Here,
-we can see that `/users/vlad` contains seven [sub-directories](../../gloss.html#sub-directory).
-The names that don't have trailing slashes,
-like `notes.txt`, `pizza.cfg`, and `solar.pdf`,
-are plain old files.
-And note that there is a space between `ls` and `-F`:
-without it,
-the shell thinks we're trying to run a command called `ls-F`,
-which doesn't exist.
+Aquí,
+podemos ver que `/users/vlad` contiene siete [subdirectorios](../../gloss.html#sub-directory).
+Los nombres que no tienen barras al final
+como `notes.txt`, `pizza.cfg` y `solar.pdf`,
+son simplemente archivos y no directorios.
+Además, date cuenta que hay un espacio entre `ls` y `-F`:
+sin él, la shell cree que estamos intentado ejecutar un programa llamado `ls-F`,
+el cual no existe.
 
-> #### What's In A Name?
+> #### ¿Qué aparece en un nombre?
 > 
-> You may have noticed that all of Vlad's files' names are "something dot
-> something". This is just a convention: we can call a file `mythesis` or
-> almost anything else we want. However, most people use two-part names
-> most of the time to help them (and their programs) tell different kinds
-> of files apart. The second part of such a name is called the
-> [filename extension](../../gloss.html#filename-extension), and indicates
-> what type of data the file holds: `.txt` signals a plain text file, `.pdf`
-> indicates a PDF document, `.cfg` is a configuration file full of parameters
-> for some program or other, and so on.
+> Tal vez te hayas dado cuenta que todos los nombres de los archivos de Vlad son 
+> “algo punto algo”. Esto es sólo una convención: podemos llamar a un archivo  `mythesis` o
+> casi cualquier otra cosa que queramos. Sin embargo, la mayoría de la gente emplea nombres de dos partes
+> casi siempre como ayuda para ellos mismos (y sus programas) para indicar diferentes tipos 
+> de archivos. La segunda parte de dicho nombre se llama
+> [extensión](../../gloss.html#filename-extension), e indica 
+> qué tipo de datos contiene el archivo: `.txt` se refiere a un archivo de texto plano; `.pdf`
+> indica un documento PDF, `.cfg` es un fichero de configuración lleno de parámetros
+> para algún programa y así el resto de extensiones.
 >
-> This is just a convention, albeit an important one. Files contain
-> bytes: it's up to us and our programs to interpret those bytes
-> according to the rules for PDF documents, images, and so on.
+> Esto es solo una convención, aunque importante. Los archivos contienen 
+> bytes: nos toca a nosotros y a nuestros programas interpretarlos
+> de acuerdo a las reglas para documentos PDF, imágenes o lo que sea. 
 >
-> Naming a PNG image of a whale as `whale.mp3` doesn't somehow
-> magically turn it into a recording of whalesong, though it *might*
-> cause the operating system to try to open it with a music player
-> when someone double-clicks it.
+> Nombrar una imagen PNG de una ballena como `ballena.mp3` no convierte 
+> mágicamente la imagen a una grabación del sonido de una ballena, aunque *tal vez*
+> provoque que el sistema operativo intente abrirlo con un reproductor de música
+> cuando alguien hace doble click sobre el archivo.
 
-Now let's take a look at what's in Vlad's `data` directory by running `ls -F data`,
-i.e.,
-the command `ls` with the [arguments](../../gloss.html#argument) `-F` and `data`.
-The second argument&mdash;the one *without* a leading dash&mdash;tells `ls` that
-we want a listing of something other than our current working directory:
+Ahora, echemos un vistazo a lo que hay en el directorio `data` de Vlad ejecutando `ls -F data`,
+es decir,
+el comando `ls` con los [argumento](../../gloss.html#argument) `-F` y `data`.
+El segundo argumento&mdash;el único *sin* guión delante&mdash;le dice a `ls` que
+queremos un listado de alguna otra cosa diferente a nuestro directorio de trabajo actual:
 
 ~~~
 $ ls -F data
@@ -207,31 +205,31 @@ pdb/              planets.txt   sunspot.txt
 ~~~
 {:class="out"}
 
-The output shows us that there are four text files and two sub-sub-directories.
-Organizing things hierarchically in this way helps us keep track of our work:
-it's possible to put hundreds of files in our home directory,
-just as it's possible to pile hundreds of printed papers on our desk,
-but it's a self-defeating strategy.
+La salida nos muestra que hay cuatro archivos de texto y dos sub-sub-directorios.
+Organizar las cosas jerárquicamente de esta manera nos ayuda a mantener claro nuestro trabajo:
+es posible poner cientos de archivos en nuestro *home*,
+así como es posible apilar cientos de papeles impresos en nuestro escritorio,
+pero es una estrategia contraprodcente.
 
-Notice, by the way that we spelled the directory name `data`.
-It doesn't have a trailing slash:
-that's added to directory names by `ls` when we use the `-F` flag to help us tell things apart.
-And it doesn't begin with a slash because it's a [relative path](../../gloss.html#relative-path),
-i.e., it tells `ls` how to find something from where we are,
-rather than from the root of the file system.
+Nótese, por la forma que deletreamos el directorio `data`.
+No tiene barra al final:
+se agrega a los nombres del directorio `ls` cuando usamos el indicador `-F` para ayudarnos a que nos diga cosas aparte.
+Y no comienza con una barra porque es una [ruta relativa](../../gloss.html#relative-path),
+es decir, le dice a `ls` cómo encontrar algo desde donde estamos,
+en vez de la raíz del sistema de archivos.
 
-> #### Parameters vs. Arguments
+> #### Parámetros vs. Argumentos
 >
-> According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
-> the terms [argument](../../gloss.html#argument) and [parameter](../../gloss.html#parameter)
-> mean slightly different things.
-> In practice,
-> however,
-> most people use them interchangeably or inconsistently,
-> so we will too.
+> De acuerdo con [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
+> el término [argumento](../../gloss.html#argument) y [parámetro](../../gloss.html#parameter)
+> significan cosas un poco diferente.
+> En práctica,
+> sin embargo,
+> la mayoría lo usan indistintamente o de manera inconsistente,
+> y así haremos aquí también.
 
-If we run `ls -F /data` (*with* a leading slash) we get a different answer,
-because `/data` is an [absolute path](../../gloss.html#absolute-path):
+Si ejecutamos `ls -F /data` (*con* una barra inicial) obtenemos una respuesta diferente,
+porque `/data` es una [ruta absoluta](../../gloss.html#absolute-path):
 
 ~~~
 $ ls -F /data
@@ -243,14 +241,14 @@ network.cfg
 ~~~
 {:class="out"}
 
-The leading `/` tells the computer to follow the path from the root of the filesystem,
-so it always refers to exactly one directory,
-no matter where we are when we run the command.
+La barra inicial `/` le dice al ordenador que siga la ruta desde el *root* del sistema de archivos,
+para que siempre se refiera a exactamente un directorio,
+sin importar dónde estamos cuando ejecutamos el comando.
 
-What if we want to change our current working directory?
-Before we do this,
-`pwd` shows us that we're in `/users/vlad`,
-and `ls` without any arguments shows us that directory's contents:
+¿Y si queremos cambiar nuestro directorio de trabajo actual?
+Antes de que hagamos esto,
+`pwd` nos muestra que estamos en `/users/vlad`
+y `ls` sin ningún argumento nos muestra el contenido del directorio:
 
 ~~~
 $ pwd
@@ -271,22 +269,22 @@ solar.pdf    swc/
 ~~~
 {:class="out"}
 
-We can use `cd` followed by a directory name to change our working directory.
-`cd` stands for "change directory",
-which is a bit misleading:
-the command doesn't change the directory,
-it changes the shell's idea of what directory we are in.
+Podemos usar `cd` seguido por un nombre de directorio para cambiar nuestro directorio de trabajo.
+`cd` significa *change directory* (cambio de directorio)
+lo cual es un poco engañoso:
+el comando no cambia el directorio,
+cambia la idea de la shell de en qué directorio estamos.
 
 ~~~
 $ cd data
 ~~~
 {:class="in"}
 
-`cd` doesn't print anything,
-but if we run `pwd` after it, we can see that we are now in `/users/vlad/data`.
-If we run `ls` without arguments now,
-it lists the contents of `/users/vlad/data`,
-because that's where we now are:
+`cd` no imprime nada,
+pero si ejecutamos `pwd` tras ello, podemos ver que ahora estamos en `/users/vlad/data`.
+Si ahora ejecutamos `ls` sin argumentos,
+se muestran los contenidos de `/users/vlad/data`,
+porque es donde estamos ahora:
 
 ~~~
 $ pwd
@@ -306,16 +304,16 @@ pdb/              planets.txt   sunspot.txt
 ~~~
 {:class="out"}
 
-We now know how to go down the directory tree:
-how do we go up?
-We could use an absolute path:
+Ahora sabemos cómo bajar en un árbol de directorios:
+¿cómo vamos hacia arriba?
+Podríamos usar una ruta absoluta:
 
 ~~~
 $ cd /users/vlad
 ~~~
 {:class="in"}
 
-but it's almost always simpler to use `cd ..` to go up one level:
+pero es casi siempre más simple emplear: `cd ..` para ascender un nivel:
 
 ~~~
 $ pwd
@@ -330,12 +328,12 @@ $ cd ..
 ~~~
 {:class="in"}
 
-`..` is a special directory name meaning
-"the directory containing this one",
-or more succinctly,
-the [parent](../../gloss.html#parent-directory) of the current directory.
-Sure enough,
-if we run `pwd` after running `cd ..`, we're back in `/users/vlad`:
+`..` es un nombre de directorio especial que significa 
+"el directorio que contiene en el que estamos",
+o más sucintamente,
+el [padre](../../gloss.html#parent-directory) del directorio actual.
+Seguramente,
+si ejecutamos `pwd` después de ejecutar `cd ..` estamos de vuelta en `/users/vlad`:
 
 ~~~
 $ pwd
@@ -346,8 +344,8 @@ $ pwd
 ~~~
 {:class="out"}
 
-The special directory `..` doesn't usually show up when we run `ls`.
-If we want to display it, we can give `ls` the `-a` flag:
+El directorio especial `..` habitualmente no aparece cuando ejecutamos `ls`.
+Si queremos que aparezca, podemos darle a `ls` el indicador `-a`:
 
 ~~~
 $ ls -F -a
@@ -360,119 +358,119 @@ pizza.cfg    solar/    solar.pdf    swc/
 ~~~
 {:class="out"}
 
-`-a` stands for "show all";
-it forces `ls` to show us file and directory names that begin with `.`,
-such as `..` (which, if we're in `/users/vlad`, refers to the `/users` directory).
-As you can see,
-it also displays another special directory that's just called `.`,
-which means "the current working directory".
-It may seem redundant to have a name for it,
-but we'll see some uses for it soon.
+`-a` indica *show all* (que se muestre todo);
+fuerza a `ls` para que nos muestre los nombres de los archivos y directorios que comienzan con `.`,
+incluyendo `..` (lo que, si estamos en `/users/vlad`, se refiere al directorio `/users`).
+Como puedes ver,
+también muestra otro directorio especial que se llama simplemente `.`,
+lo que significa "el directorio actual de trabajo".
+Tal vez parezca redundante tener un nombre para ello,
+pero veremos algunos usos para ello pronto.
 
-> #### Orthogonality
+> #### Ortogonalidad
 > 
-> The special names `.` and `..` don't belong to `ls`;
-> they are interpreted the same way by every program.
-> For example,
-> if we are in `/users/vlad/data`,
-> the command `ls ..` will give us a listing of `/users/vlad`.
-> When the meanings of the parts are the same no matter how they're combined,
-> programmers say they are [orthogonal](../../gloss.html#orthogonal):
-> Orthogonal systems tend to be easier for people to learn
-> because there are fewer special cases and exceptions to keep track of.
+> Los nombres especiales `.` y `..` no pertenecen a `ls`;
+> son interpretados igualmente por todo los programas.
+> Por ejemplo,
+> si estamos en `/users/vlad/data`,
+> el comando `ls ..` nos dará un listado de `/users/vlad`.
+> Cuando el significado de las partes sea el mismo no importa cómo estén combinados,
+> los programadores dicen que son [ortogonales](../../gloss.html#orthogonal):
+> los sistemas ortogonales tienden a ser más fáciles de aprender para la gente
+> porque hay muy pocos casos especiales y excepciones que no se ajusten a ello.
 
-### Nelle's Pipeline: Organizing Files
+### El proyecto de Nelle: Organizando archivos
 
-Knowing just this much about files and directories,
-Nelle is ready to organize the files that the protein assay machine will create.
-First,
-she creates a directory called `north-pacific-gyre`
-(to remind herself where the data came from).
-Inside that,
-she creates a directory called `2012-07-03`,
-which is the date she started processing the samples.
-She used to use names like `conference-paper` and `revised-results`,
-but she found them hard to understand after a couple of years.
-(The final straw was when she found herself creating
-a directory called `revised-revised-results-3`.)
+Sabiendo tanto como hasta ahora sobre archivos y directorios,
+Nelle está lista para organizar los archivos que la máquina de ensayos de proteínas creará.
+Primero,
+ella crea un directorio llamado `north-pacific-gyre`
+(para recordarse de dónde vino la información).
+Dentro de ese directorio,
+crea una carpeta llamada `2012-07-03`,
+que es la fecha de cuando empezó a procesar las muestras.
+Ella solia usar nombres como `conference-paper` y `revised-results`,
+pero encontró difícil de entenderlos después de un par de años.
+(el lío final fue cuando se encontró a sí misma creando
+una carpeta llamada `revised-revised-results-3`.)
 
-> Nelle names her directories "year-month-day",
-> with leading zeroes for months and days,
-> because the shell displays file and directory names in alphabetical order.
-> If she used month names,
-> December would come before July;
-> if she didn't use leading zeroes,
-> November ('11') would come before July ('7').
+> Nelle nombra sus carpetas "año-mes-día",
+> con ceros delante de los meses y días que corresponda,
+> porque el Shell expone los nombres de archivos y carpetas en orden alfabético
+> Si emplease nombres de meses,
+> diciembre iría antes que julio;
+> si ella no usara ceros,
+> noviembre ('11') iría antes que julio ('7').
 
-Each of her physical samples is labelled according to her lab's convention
-with a unique ten-character ID,
-such as "NENE01729A".
-This is what she used in her collection log
-to record the location, time, depth, and other characteristics of the sample,
-so she decides to use it as part of each data file's name.
-Since the assay machine's output is plain text,
-she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
-All 1520 files will go into the same directory.
+Cada una de sus muestras está etiquetada de acuerdo a la convención de su laboratorio
+con una identificación única de 10 caracteres
+tal como: "NENE01729A".
+Esto es lo que empleaba en su cuaderno de registros
+para añadir la localización, la hora, la profundidad y otras características de la muestra,
+así que decide emplearlo como parte de cada uno de los nombres de los archivos.
+Como la salida de la máquina de ensayos es en texto plano,
+llamará a sus archivos `NENE01729A.txt`, `NENE01812A.txt`, etc.
+Los 1520 ficheros irán al mismo directorio.
 
-If she is in her home directory,
-Nelle can see what files she has using the command:
+Si ella está en su directorio *home*,
+puede ver qué archivos tiene empleando el comando:
 
 ~~~
 $ ls north-pacific-gyre/2012-07-03/
 ~~~
 {:class="in"}
 
-This is a lot to type,
-but she can let the shell do most of the work.
-If she types:
+Esto es mucho para escribir,
+pero ella puede hacer que la shell haga la mayor parte del trabajo.
+Si escribe:
 
 ~~~
 $ ls no
 ~~~
 {:class="in"}
 
-and then presses tab,
-the shell automatically completes the directory name for her:
+y entonces presiona tabulador,
+la shell automáticamente completa el nombre del directorio por ella:
 
 ~~~
 $ ls north-pacific-gyre/
 ~~~
 {:class="in"}
 
-If she presses tab again,
-Bash will add `2012-07-03/` to the command,
-since it's the only possible completion.
-Pressing tab again does nothing,
-since there are 1520 possibilities;
-pressing tab twice brings up a list of all the files,
-and so on.
-This is called [tab completion](../../gloss.html#tab-completion),
-and we will see it in many other tools as we go on.
+Si ella presiona el tabulador de nuevo,
+Bash añadirá `2012-07-03/` al comando,
+ya que es la única posible combinación.
+Presionar el tabulador de nuevo no hace nada,
+ya que hay 1520 posiblidades;
+presionar el tabulador dos veces hace aparecer una lista de todos los archivos,
+etc.
+Esto se llama [*tab completion*](../../gloss.html#tab-completion) (completado por tabulador),
+y lo veremos en otras muchas herramientas mientras continuamos.
 
 <div class="keypoints" markdown="1">
 
-#### Key Points
-*   The file system is responsible for managing information on the disk.
-*   Information is stored in files, which are stored in directories (folders).
-*   Directories can also store other directories, which forms a directory tree.
-*   `/` on its own is the root directory of the whole filesystem.
-*   A relative path specifies a location starting from the current location.
-*   An absolute path specifies a location from the root of the filesystem.
-*   Directory names in a path are separated with '/' on Unix, but '\\' on Windows.
-*   '..' means "the directory above the current one";
-    '.' on its own means "the current directory".
-*   Most files' names are `something.extension`.
-    The extension isn't required,
-    and doesn't guarantee anything,
-    but is normally used to indicate the type of data in the file.
-*   Most commands take options (flags) which begin with a '-'.
+#### Puntos Clave
+*   El sistema de archivos es responsable de manejar información del disco.
+*   La información se almacena en archivos, los cuales están almacenados en directorios (carpetas)
+*   Los directorios pueden también almacenar otros directorios, lo cual forma un árbol de directorios.
+*   `/` por si sola es el directorio *root* (raíz) de todo el sistema de archivos.
+*   Una ruta relativa especifica una localización a partir de la localización actual.
+*   Una ruta absoluta especifica una localización a partir de la raíz del sistema de archivos.
+*   Los nombres de directorios en una ruta están separados con `/` en Unix, pero `\\` en Windows.
+*   `..` significa "el directorio por encima del actual";
+    `.` por sí solo significa "el directorio actual".
+*   La mayoría de los nombres de los archivos son `algo.extension`.
+    La extensión no es requerida,
+    y no garantiza nada,
+    pero normalmente se emplea para indicar el tipo de información en el archivo.
+*   La mayoría de los comandos toman opciones (indicadores) que comienzan con `-`.
 
 </div>
 
-<img src="img/filesystem-challenge.svg" alt="Filesystem for Challenge Questions" />
+<img src="img/filesystem-challenge.svg" alt="Sistema de ficheros para el desafío" />
 
 <div class="challenge" markdown="1">
-If `pwd` displays `/users/thing`, what will `ls ../backup` display?
+Si `pwd` muestra /`/users/thing`, ¿qué mostrará `ls ../backup`?
 
 1.  `../backup: No such file or directory`
 2.  `2012-12-01 2013-01-08 2013-01-27`
@@ -481,9 +479,9 @@ If `pwd` displays `/users/thing`, what will `ls ../backup` display?
 </div>
 
 <div class="challenge" markdown="1">
-If `pwd` displays `/users/backup`,
-and `-r` tells `ls` to display things in reverse order,
-what command will display:
+Si `pwd` muestra `/users/backup`
+y `-r` le dice a `ls` que muestre cosas en orden inverso,
+que comando mostrará: 
 
 ~~~
 pnas-sub/ pnas-final/ original/
@@ -492,18 +490,18 @@ pnas-sub/ pnas-final/ original/
 1.  `ls pwd`
 2.  `ls -r -F`
 3.  `ls -r -F /users/backup`
-4.  Either \#2 or \#3 above, but not \#1.
+4.  Cualquiera entre \#2 o \#3, pero no \#1.
 </div>
 
 <div class="challenge" markdown="1">
-What does the command `cd` without a directory name do?
+¿Qué hace el comando `cd` sin un nombre de directorio?
 
-1.  It has no effect.
-2.  It changes the working directory to `/`.
-3.  It changes the working directory to the user's home directory.
-4.  It produces an error message.
+1.  No tiene efecto
+2.  Cambia el directorio de trabajo a `/`.
+3.  Cambia el directorio de trabajo al directorio *home* del usuario.
+4.  Produce un mensaje de error.
 </div>
 
 <div class="challenge" markdown="1">
-What does the command `ls` do when used with the -s and -h arguments?
+¿Qué hace el comando `ls` cuando se usa con los argumentos `-s` and `-h`?
 </div>
