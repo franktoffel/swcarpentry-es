@@ -3,35 +3,35 @@ layout: lesson
 root: ../..
 ---
 
-## Selecting Data
+## Seleccionando Datos
 
 
 <div>
-<p>In the late 1920s and early 1930s, William Dyer, Frank Pabodie, and Valentina Roerich led expeditions to the <a href="http://en.wikipedia.org/wiki/Pole_of_inaccessibility">Pole of Inaccessibility</a> in the South Pacific, and then onward to Antarctica. Two years ago, their expeditions were found in a storage locker at Miskatonic University. We have scanned and OCR'd the data they contain, and we now want to store that information in a way that will make search and analysis easy.</p>
-<p>We basically have three options: text files, a spreadsheet, or a database. Text files are easiest to create, and work well with version control, but then we would then have to build search and analysis tools ourselves. Spreadsheets are good for doing simple analysis, they don't handle large or complex data sets very well. We would therefore like to put this data in a database, and these lessons will show how to do that.</p>
+<p>Durante finales de la década de 1920 e inicios de la década de 1930, William Dyer, Frank Pabodie, y Valentina Roerich lideraron expediciones hacia el <a href="http://es.wikipedia.org/wiki/Polo_de_inaccesibilidad">Polo de Inaccesibilidad</a> en el Pacífico Sur, y luego hacia la Antártica. Hace dos años, sus expediciones fueron halladas en un casillero en la Universidad de Miskatonic. Hemos escaneado la información que contienen, y le hicimos un reconocimiento óptico de caracteres (OCR), y ahora queremos almacenar dicha información de una manera que facilite su búsqueda y análisis.</p>
+<p>Básicamente tenemos tres opciones: archivos de texto, una hoja de cálculo, o una *database* (base de datos). Los archivos de texto son los más fáciles de crear, y funcionan bien con sistemas de control de versiones, pero entonces nosotros mismos tendríamos que desarrollar herramientas de búsqueda y análisis. Las hojas de cálculo son útiles para realizar análisis simples, aunque no manejan muy bien conjuntos de datos que sean grandes y complejos. Por lo tanto, nos gustaría colocar toda esta información en una base de datos, y estas lecciones mostrarán cómo hacer eso.</p>
 </div>
 
 
 <div class="objectives">
-<h4 id="objectives">Objectives</h4>
+<h4 id="objectives">Objetivos</h4>
 <ul>
-<li>Explain the difference between a table, a record, and a field.</li>
-<li>Explain the difference between a database and a database manager.</li>
-<li>Write a query to select all values for specific fields from a single table.</li>
+<li>Explicar la diferencia entre una tabla, un registro, y un campo.</li>
+<li>Explicar la diferencia entre una base de datos y un gestor de bases de datos.</li>
+<li>Escribir una *query* para seleccionar todos los valores correspondientes a campos específicos de una tabla.</li>
 </ul>
 </div>
 
-### A Few Definitions
+### Algunas Definiciones
 
 
 <div>
-<p>A <a href="../../gloss.html#relational-database">relational database</a> is a way to store and manipulate information that is arranged as <a href="../../gloss.html#table-database">tables</a>. Each table has columns (also known as <a href="../../gloss.html#field-database">fields</a>) which describe the data, and rows (also known as <a href="../../gloss.html#record-database">records</a>) which contain the data.</p>
-<p>When we are using a spreadsheet, we put formulas into cells to calculate new values based on old ones. When we are using a database, we send commands (usually called <a href="../../gloss.html#query">queries</a>) to a <a href="../../gloss.html#database-manager">database manager</a>: a program that manipulates the database for us. The database manager does whatever lookups and calculations the query specifies, returning the results in a tabular form that we can then use as a starting point for further queries.</p>
+<p>Una <a href="../../gloss.html#relational-database">*relational database*</a> es una forma de almacenar y manipular información organizada en <a href="../../gloss.html#table-database">*tables*</a> (tablas). Cada tabla tiene columnas (también conocidas como <a href="../../gloss.html#field-database">*fields*</a>(campos)) las cuales describen los datos, y filas (también conocidas como <a href="../../gloss.html#record-database">*records*</a>) las cuales contienen los datos.</p>
+<p>Cuando utilizamos una hoja de cálculo, introducimos fórmulas en las celdas para calcular nuevos valores en base a los valores ya conocidos. Cuando utilizamos una base de datos, enviamos comandos (usualmente llamados <a href="../../gloss.html#query">*queries*</a>(consultas)) a un <a href="../../gloss.html#database-manager">*database manager*</a> (gestor de bases de datos): un programa que manipula la base de datos por nosotros. El gestor de bases de datos realiza todas las búsquedas y cálculos especificados en la *query*, devolviendo los resultados organizados en una tabla que luego podremos utilizar como punto de partida para *queries* posteriores.</p>
 <blockquote>
-<p>Every database manager—Oracle, IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite—stores data in a different way, so a database created with one cannot be used directly by another. However, every database manager can import and export data in a variety of formats, so it <em>is</em> possible to move information from one to another.</p>
+<p>Cada gestor de bases de datos—Oracle, IBM DB2, PostgreSQL, MySQL, Microsoft Access, and SQLite—almacena datos de modo diferente, asi que una base de datos creada con alguno de ellos no puede ser utlizada directamente por otro. Sin embargo, cada gestor de bases de datos puede importar y exportar datos en una variedad de formatos, por lo tanto <em>es</em> posible mover información de uno a otro.</p>
 </blockquote>
-<p>Queries are written in a language called <a href="../../gloss.html#sql">SQL</a>, which stands for &quot;Structured Query Language&quot;. SQL provides hundreds of different ways to analyze and recombine data; we will only look at a handful, but that handful accounts for most of what scientists do.</p>
-<p>The tables below show the database we will use in our examples:</p>
+<p>Las *queries* son escritas en un lenguaje llamado <a href="../../gloss.html#sql">SQL</a>, cuyas siglas en inglés representan  &quot;*Structured Query Language*&quot;. SQL proporciona cientos de diferentes formas de analizar y recombinar datos; sólo prestaremos atención a unos pocos, pero que son válidos para la mayor parte del trabajo que los científicos realizan.</p>
+<p>Las siguientes tablas muestran la base de datos que utilizaremos en nuestros ejemplos:</p>
 </div>
 
 
@@ -39,7 +39,7 @@ root: ../..
 <table>
 <tr>
 <td valign="top">
-<p><strong>Person</strong>: people who took readings.</p>
+<p><strong>Person</strong>: las personas que tomaron mediciones.</p>
 <table>
   <tr> <th>
 ident
@@ -85,7 +85,7 @@ Danforth
 </td> </tr>
 </table>
 
-<p><strong>Site</strong>: locations where readings were taken.</p>
+<p><strong>Site</strong>: ubicaciones geográficas dónde se tomaron las mediciones.</p>
 <table>
   <tr> <th>
 name
@@ -117,7 +117,7 @@ MSK-4
 </td> </tr>
 </table>
 
-<p><strong>Visited</strong>: when readings were taken at specific sites.</p>
+<p><strong>Visited</strong>: las fechas en que se tomaron las mediciones.</p>
 <table>
   <tr> <th>
 ident
@@ -185,7 +185,7 @@ DR-1
 </table>
 </td>
 <td valign="top">
-<p><strong>Survey</strong>: the actual readings.</p>
+<p><strong>Survey</strong>: las mediciones tomadas.</p>
 <table>
   <tr> <th>
 taken
@@ -394,19 +394,21 @@ rad
 
 
 <div>
-<p>Notice that three entries—one in the <code>Visited</code> table, and two in the <code>Survey</code> table—are shown in red because they don't contain any actual data: we'll return to these missing values <a href="#s:null">later</a>. For now, let's write an SQL query that displays scientists' names. We do this using the SQL command <code>select</code>, giving it the names of the columns we want and the table we want them from. Our query and its output look like this:</p>
+<p>Nótese que tres entradas—una en la tabla <code>Visited</code>, y dos en la tabla <code>Survey</code>—se muestran en rojo ya que no contienen ningún dato: volveremos a estos valores faltantes <a href="#s:null">luego</a>. Por ahora, escribamos una *query* SQL que muestre los nombres de los científicos. Para esto, utilizamos el comando SQL <code>select</code>, proporcionando los nombres de las columnas que deseamos y la tabla de la cual deseamos que provengan. Nuestra *query* y su resultado se ven así:</p>
 </div>
 
 
 <div class="in">
 <pre>%load_ext sqlitemagic</pre>
 </div>
+`'sqlitemagic' es una extensión de iPython que permite ejecutar queries SQL y mostrar su resultado en tablas.`
 
 
 <div class="in">
 <pre>%%sqlite survey.db
 select family, personal from Person;</pre>
 </div>
+`los nombres de las columnas "family" y "personal" son, respectivamente, abreviaturas de "family name" (apellido) y "personal name" (nombre propio).`
 
 <div class="out">
 <pre><table>
@@ -420,7 +422,7 @@ select family, personal from Person;</pre>
 
 
 <div>
-<p>The semi-colon at the end of the query tells the database manager that the query is complete and ready to run. We have written our commands and column names in lower case, and the table name in Title Case, but we don't have to: as the example below shows, SQL is <a href="../../gloss.html#case-insensitive">case insensitive</a>.</p>
+<p>El símbolo punto y coma al final de la *query* le indica al gestor de bases de datos que la consulta está completada y lista para ser ejecutada. Hemos escrito nuestros comandos y el nombre de columna en letra minúscula, y el nombre de la tabla con la primera letra en mayúscula, pero no estamos obligados a hacerlo: como se muestra en el siguiente ejemplo, SQL es <a href="../../gloss.html#case-insensitive">*case insensitive*</a> (insensible a mayúsculas y minúsculas).</p>
 </div>
 
 
@@ -441,12 +443,12 @@ SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;</pre>
 
 
 <div>
-<p>Whatever casing convention you choose, please be consistent: complex queries are hard enough to read without the extra cognitive load of random capitalization.</p>
+<p>Cualquiera que sea la distribución de mayúsculas y minúsculas que utilices, por favor se consistente: las *queries* complejas son suficientemente difíciles de leer sin la carga cognitiva adicional causada por un uso aleatorio de las mayúsculas y minúsculas.</p>
 </div>
 
 
 <div>
-<p>Going back to our query, it's important to understand that the rows and columns in a database table aren't actually stored in any particular order. They will always be <em>displayed</em> in some order, but we can control that in various ways. For example, we could swap the columns in the output by writing our query as:</p>
+<p>Volviendo a nuestra *query*, es importante entender que las filas y columnas en una base de datos, en realidad, no están almacenadas en ningún orden particular. Ellas siempre serán <em>displayed</em> en algún orden, pero podemos controlar eso de varias maneras. Por ejemplo, podríamos intercambiar las columnas en el resultado escribiendo nuestra *query* así:</p>
 </div>
 
 
@@ -467,7 +469,7 @@ select personal, family from Person;</pre>
 
 
 <div>
-<p>or even repeat columns:</p>
+<p>o también repetir columnas:</p>
 </div>
 
 
@@ -475,6 +477,9 @@ select personal, family from Person;</pre>
 <pre>%%sqlite survey.db
 select ident, ident, ident from Person;</pre>
 </div>
+`select (seleccionar): Comando SQL utilizado para indicar los campos de la tabla cuyos datos deseamos extraer`
+`from (de, desde): Palabra reservada SQL utilizada para hacer referencia a la tabla de la cual deseamos extraer`
+`el nombre de la columna "ident" es la abreviatura de "identification" (identificación)`
 
 <div class="out">
 <pre><table>
@@ -488,7 +493,7 @@ select ident, ident, ident from Person;</pre>
 
 
 <div>
-<p>As a shortcut, we can select all of the columns in a table using <code>*</code>:</p>
+<p>Y como atajo, podemos seleccionar todas las columnas en una tabla utilizando <code>*</code>:</p>
 </div>
 
 
@@ -509,24 +514,24 @@ select * from Person;</pre>
 
 
 <div>
-<h4 id="challenges">Challenges</h4>
+<h4 id="challenges">Desafíos</h4>
 <ol style="list-style-type: decimal">
-<li><p>Write a query that selects only site names from the <code>Site</code> table.</p></li>
-<li><p>Many people format queries as:</p>
+<li><p>Escribe una *query* que seleccione solamente los nombres de sitio de la tabla <code>Site</code>.</p></li>
+<li><p>Muchas presonas escriben sus *queries* con el siguiente formato:</p>
 <pre><code>SELECT personal, family FROM person;</code></pre>
-<p>or as:</p>
+<p>o así:</p>
 <pre><code>select Personal, Family from PERSON;</code></pre>
-<p>What style do you find easiest to read, and why?</p></li>
+<p>¿Cuál de estos estilos te parece más fácil de leer, y por qué?</p></li>
 </ol>
 </div>
 
 
 <div class="keypoints">
-<h4 id="key-points">Key Points</h4>
+<h4 id="key-points">Aspectos Clave</h4>
 <ul>
-<li>A relational database stores information in tables, each of which has a fixed set of columns and a variable number of records.</li>
-<li>A database manager is a program that manipulates information stored in a database.</li>
-<li>We write queries in a specialized language called SQL to extract information from databases.</li>
-<li>SQL is case-insensitive.</li>
+<li>Una base de datos relacional almacena información en tablas, cada una de las cuales tiene un número fijo de columnas y un número variable de registros.</li>
+<li>Un gestor de bases de datos es un programa que manipula información almacenada en una base de datos.</li>
+<li>Escribimos *queries* en un lenguaje especializado llamado SQL para extraer información de bases de datos.</li>
+<li>SQL es insensible a mayúsculas y minúsculas.</li>
 </ul>
 </div>
