@@ -1,23 +1,23 @@
 ---
 layout: lesson
 root: ../..
-title: Creating Things
+title: Creando cosas
 ---
 <div class="objectives" markdown="1">
 
-#### Objectives
-*   Create a directory hierarchy that matches a given diagram.
-*   Create files in that hierarchy using an editor or by copying and renaming existing files.
-*   Display the contents of a directory using the command line.
-*   Delete specified files and/or directories.
+#### Objectivos
+*   Crear una jerarquía de directorios que coincida con un esquema determinado.
+*   Crear archivos a partir de esa jerarquía con un editor o copiando y renombrando los archivos existentes.
+*   Mostrar el contenido de un directorio empleando la línea de comandos.
+*   Eliminar archivos especificados y/o directorios.
 
 </div>
 
-We now know how to explore files and directories,
-but how do we create them in the first place?
-Let's go back to Vlad's home directory,
+Sabemos ahora cómo explorar archivos y directorios,
+pero ¿cómo los creamos en primer lugar?
+Volvamos al *home* (directorio de inicio) de Vlad,
 `/users/vlad`,
-and use `ls -F` to see what it contains:
+y usemos `ls -F` para ver qué contiene:
 
 ~~~
 $ pwd
@@ -38,19 +38,18 @@ solar.pdf    swc/
 ~~~
 {:class="out"}
 
-Let's create a new directory called `thesis` using the command `mkdir thesis`
-(which has no output):
+Creemos un nuevo directorio llamado `thesis` empleando el comando `mkdir thesis`
+(el cual no produce salida):
 
 ~~~
 $ mkdir thesis
 ~~~
 {:class="in"}
 
-As you might (or might not) guess from its name,
-`mkdir` means "make directory".
-Since `thesis` is a relative path
-(i.e., doesn't have a leading slash),
-the new directory is made below the current working directory:
+`mkdir` proviene del inglés *make directory* (crear directorio).
+Como thesis es una ruta relativa,
+es decir, no tiene barra al inicio,
+el nuevo directorio se crea bajo el actual directorio de trabajo:
 
 ~~~
 $ ls -F
@@ -63,15 +62,15 @@ solar.pdf    swc/      thesis/
 ~~~
 {:class="out"}
 
-However, there's nothing in it yet:
+Sin embargo, todavía no hay nada dentro de él:
 
 ~~~
 $ ls -F thesis
 ~~~
 {:class="in"}
 
-Let's change our working directory to `thesis` using `cd`,
-then run a text editor called Nano to create a file called `draft.txt`:
+Cambiemos nuestro directorio de trabajo a `thesis` empleando`cd`,
+entonces ejecutemos un editor de texto llamado Nano para crear un archivo llamado `draft.txt`:
 
 ~~~
 $ cd thesis
@@ -79,36 +78,37 @@ $ nano draft.txt
 ~~~
 {:class="in"}
 
-> #### Which Editor?
+> #### ¿Qué editor?
 > 
-> When we say, "`nano` is a text editor," we really do mean "text": it can
-> only work with plain character data, not tables, images, or any other
-> human-friendly media. We use it in examples because almost anyone can
-> drive it anywhere without training, but please use something more
-> powerful for real work. On Unix systems (such as Linux and Mac OS X),
-> many programmers use [Emacs](http://www.gnu.org/software/emacs/) or
-> [Vim](http://www.vim.org/) (both of which are completely unintuitive,
-> even by Unix standards), or a graphical editor such as
-> [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
-> use [Notepad++](http://notepad-plus-plus.org/).
+> Cuando decimos que "`nano` es un editor de texto", realmente significa "texto": sólo puede
+> funcionar con los caracteres habituales, sin tablas, imágenes o cualquier otro objeto
+> familiar. Lo empleamos en ejemplos porque casi cualquiera puede
+> manejarlo en cualquier lugar sin entrenamiento, pero por favor, usa algo
+> mas potente en tu lugar de trabajo. En los sistemas Unix (tales como Linux o Mac OS X)
+> muchos programadores emplean [Emacs](http://www.gnu.org/software/emacs/)
+> o [Vim](http://www.vim.org/) (los cuales son completamente no intuitivos
+> incluso para los estándares de Unix), o un editor gráfico como
+> [Gedit](http://projects.gnome.org/gedit/). En Windows, tal vez debas usar
+> [Notepad++](http://notepad-plus-plus.org/).
 > 
-> No matter what editor you use, you will need to know where it searches
-> for and saves files. If you start it from the shell, it will (probably)
-> use your current working directory as its default location. If you use
-> your computer's start menu, it may want to save files in your desktop or
-> documents directory instead. You can change this by navigating to
-> another directory the first time you "Save As..."
+> No importa el editor que uses, necesitarás saber dónde busca
+> y guarda archivos. Si lo abres desde la shell probablemente
+> empleará tu directorio de trabajo actual como la localización por defecto. Si empleas
+> el menú de inicio de tu ordenador, tal vez quiera guardar los archivos en tu escritorio o
+> en el directorio de documentos. Puedes cambiar esto navegando
+> en otros directorios y seleccionando el que prefieras la primera vez que realices
+> "*Save as…*" (Guardar como...).
 
-Let's type in a few lines of text,
-then use Control-O to write our data to disk:
+Escribamos en unas pequeñas líneas de texto y
+entonces usamos Ctrl-O para escribir nuestra información en el disco:
 
-<img src="img/nano-screenshot.png" alt="Nano in Action" />
+<img src="img/nano-screenshot.png" alt="Nano en Acción" />
 
-Once our file is saved,
-we can use Control-X to quit the editor and return to the shell.
-(Unix documentation often uses the shorthand `^A` to mean "control-A".)
-`nano` doesn't leave any output on the screen after it exits,
-but `ls` now shows that we have created a file called `draft.txt`:
+Una vez que nuestro archivo está guardado,
+podemos usar Ctrl-X para salir del editor y volver a la shell.
+(La documentación de Unix a menudo emplea la abreviación `^A` para "Ctrl-A".)
+`nano` no muestra ninguna salida en la pantalla después de que salga,
+pero `ls` muestra que hemos creado un archivo llamado `draft.txt`:
 
 ~~~
 $ ls
@@ -126,26 +126,26 @@ $ rm draft.txt
 ~~~
 {:class="in"}
 
-This command removes files ("rm" is short for "remove").
-If we run `ls` again,
-its output is empty once more,
-which tells us that our file is gone:
+Este comando elimina archivos ("`rm`" es la abreviación en ingles de *remove* - 'eliminar').
+Si ejecutamos `ls` de nuevo,
+su salida aparece vacía una vez más,
+lo que nos indica que nuestro archivo se ha eliminado.
 
 ~~~
 $ ls
 ~~~
 {:class="in"}
 
-> #### Deleting Is Forever
+> #### Eliminar es para Siempre
 > 
-> Unix doesn't have a trash bin: when we delete files, they are unhooked
-> from the file system so that their storage space on disk can be
-> recycled. Tools for finding and recovering deleted files do exist, but
-> there's no guarantee they'll work in any particular situation, since the
-> computer may recycle the file's disk space right away.
+> Unix no tiene una papelera de reciclaje: cuando eliminamos archivos, ellos son desenganchados
+> del sistema de archivos para que su espacio de almacenamiento en disco se pueda 
+> reciclar. Existen herramientas para encontrar y recuperar archivos eliminados, pero
+> no se garantiza que funcionen en cualquier situación, ya que
+> el ordenador puede haber reutilizado el espacio de disco de los archivos.
 
-Let's re-create that file
-and then move up one directory to `/users/vlad` using `cd ..`:
+Volvemos a crear ese archivo
+y subimos un directorio hacia `/users/vlad` empleando `cd ..`:
 
 ~~~
 $ pwd
@@ -169,8 +169,8 @@ $ cd ..
 ~~~
 {:class="in"}
 
-If we try to remove the entire `thesis` directory using `rm thesis`,
-we get an error message:
+Si intentamos eliminar el directorio `thesis` empleando `rm thesis`,
+obtenemos el siguiente mensaje de error:
 
 ~~~
 $ rm thesis
@@ -181,11 +181,11 @@ rm: cannot remove `thesis': Is a directory
 ~~~
 {:class="err"}
 
-This happens because `rm` only works on files, not directories.
-The right command is `rmdir`,
-which is short for "remove directory".
-It doesn't work yet either, though,
-because the directory we're trying to remove isn't empty:
+Esto sucede porque `rm` solo funciona sobre archivos, no directorios.
+El comando correcto es `rmdir`,
+el cual es la abreviación del inglés *remove directory* (eliminar directorio).
+Aunque esto tampoco funciona
+porque el directorio que estamos intentando eliminar no está vacío:
 
 ~~~
 $ rmdir thesis
@@ -196,40 +196,41 @@ rmdir: failed to remove `thesis': Directory not empty
 ~~~
 {:class="err"}
 
-This little safety feature can save you a lot of grief,
-particularly if you are a bad typist.
-To really get rid of `thesis` we must first delete the file `draft.txt`:
+Este pequeña característica de seguridad puede ahorrarte muchas penas,
+particularmente si eres un mal mecanógrafo.
+Para realmente deshacerse de `thesis` debemos eliminar primero el archivo `draft.txt`:
 
 ~~~
 $ rm thesis/draft.txt
 ~~~
 {:class="in"}
 
-The directory is now empty, so `rmdir` can delete it:
+El directorio ahora está vacío, por tanto `rmdir` puede eliminarlo:
 
 ~~~
 $ rmdir thesis
 ~~~
 {:class="in"}
 
-> #### With Great Power Comes Great Responsibility
+> #### Un Gran Poder Acarrea Una Gran Responsabilidadw
 > 
-> Removing the files in a directory just so that we can remove the
-> directory quickly becomes tedious. Instead, we can use `rm` with the
-> `-r` flag (which stands for "recursive"):
+> La eliminación de archivos en un directorio sólo para que podamos eliminar
+> el directorio, rápidamente se convierte en una tarea aburrida.
+> En su lugar, podemos emplear `rm` con la
+> opción `-r` (que proviene de "recursivo"):
 > 
 > ~~~
 > $ rm -r thesis
 > ~~~
 > 
-> This removes everything in the directory, then the directory itself. If
-> the directory contains sub-directories, `rm -r` does the same thing to
-> them, and so on. It's very handy, but can do a lot of damage if used
-> without care.
+> Esto elimina todo en el directorio, incluido el directorio en si. Si
+> el directorio contiene sub-directorios, `rm -r` les hace la misma cosa
+> a ellos y sucesivamente. Es muy útil, pero puede provocar muchos daños si
+> no se emplea cuidadosamente.
 
-Let's create that directory and file one more time.
-(Note that this time we're running `nano` with the path `thesis/draft.txt`,
-rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
+Creamos ese directorio y archivo una vez más.
+(Nota que esta vez estamos ejecutando `nano` con la ruta `thesis/draft.txt`,
+en vez de ir dentro del directorio `thesis` y ejecutar `nano` sobre `draft.txt`.)
 
 ~~~
 $ pwd
@@ -253,22 +254,22 @@ draft.txt
 ~~~
 {:class="out"}
 
-`draft.txt` isn't a particularly informative name,
-so let's change the file's name using `mv`,
-which is short for "move":
+`draft.txt` no es un nombre particularmente informativo,
+así que cambiemos el nombre del archivo empleando `mv`,
+que es la abreviación de *move* (mover):
 
 ~~~
 $ mv thesis/draft.txt thesis/quotes.txt
 ~~~
 {:class="in"}
 
-The first parameter tells `mv` what we're "moving",
-while the second is where it's to go.
-In this case,
-we're moving `thesis/draft.txt` to `thesis/quotes.txt`,
-which has the same effect as renaming the file.
-Sure enough,
-`ls` shows us that `thesis` now contains one file called `quotes.txt`:
+El primer parámetro le dice a `mv` qué estamos "moviendo",
+mientras que el segundo es dónde tiene que ir.
+En este caso,
+estamos moviendo `thesis/draft.txt` a `thesis/quotes.txt`,
+lo que tiene el mismo efecto que renombrar el archivo.
+Efectivamente,
+`ls` nos muestra que `thesis` ahora contiene un archivo llamado `quotes.txt`:
 
 ~~~
 $ ls thesis
@@ -279,34 +280,34 @@ quotes.txt
 ~~~
 {:class="out"}
 
-Just for the sake of inconsistency,
-`mv` also works on directories&mdash;there is no separate `mvdir` command.
+Sólo por mantener la inconsistencia,
+`mv` también funciona en directorios&mdash;no hay un comando `mvdir` aparte.
 
-Let's move `quotes.txt` into the current working directory.
-We use `mv` once again,
-but this time we'll just use the name of a directory as the second parameter
-to tell `mv` that we want to keep the filename,
-but put the file somewhere new.
-(This is why the command is called "move".)
-In this case,
-the directory name we use is the special directory name `.` that we mentioned earlier.
+Movamos `quotes.txt` al directorio de trabajo actual.
+Empleamos `mv` una vez más,
+pero esta vez usaremos únicamente el nombre de un directorio como el segundo parámetro
+para decirle a `mv` que queremos mantener el nombre del archivo,
+pero en un lugar nuevo.
+(Es por ello por lo que el comando se llama "mover".)
+En este caso,
+el nombre de directorio que usamos es el nombre especial `.` que introducimos anteriormente.
 
 ~~~
 $ mv thesis/quotes.txt .
 ~~~
 {:class="in"}
 
-The effect is to move the file from the directory it was in to the current working directory.
-`ls` now shows us that `thesis` is empty:
+Esto resulta en que se ha movido el archivo del directorio en el que estaba al directorio de trabajo actual.
+`ls` muestra ahora que `thesis` está vacío:
 
 ~~~
 $ ls thesis
 ~~~
 {:class="in"}
 
-Further,
-`ls` with a filename or directory name as a parameter only lists that file or directory.
-We can use this to see that `quotes.txt` is still in our current directory:
+Además,
+`ls` con un fichero o directorio como parámetro solo muestra ese fichero o directorio.
+Podemos usar esto para ver que `quotes.txt` se encuentra en nuestro directorio actual:
 
 ~~~
 $ ls quotes.txt
@@ -317,11 +318,11 @@ quotes.txt
 ~~~
 {:class="out"}
 
-The `cp` command works very much like `mv`,
-except it copies a file instead of moving it.
-We can check that it did the right thing using `ls`
-with two paths as parameters&mdash;like most Unix commands,
-`ls` can be given thousands of paths at once:
+El comando `cp` funciona casi igual que `mv`,
+excepto en que copia en vez de mover el archivo.
+Podemos probar que hace lo que esperamos usando `ls`
+con las dos rutas como parámetros&mdash; como la mayoría de los comandos en Unix,
+se le puede indicar a `ls` miles de rutas a la vez:
 
 ~~~
 $ cp quotes.txt thesis/quotations.txt
@@ -333,11 +334,11 @@ quotes.txt   thesis/quotations.txt
 ~~~
 {:class="out"}
 
-To prove that we made a copy,
-let's delete the `quotes.txt` file in the current directory
-and then run that same `ls` again.
-This time it tells us that it can't find `quotes.txt` in the current directory,
-but it does find the copy in `thesis` that we didn't delete:
+Para confirmar que hemos hecho una copia,
+borremos el fichero `quotes.txt` del directorio de trabajo actual
+y ejecutemos el mismo `ls` otra vez.
+Esta vez nos dice que no puede encontrar `quotes.txt` en el directorio actual,
+pero si encuentra la copia  que no borramos en `thesis`:
 
 ~~~
 $ ls quotes.txt thesis/quotations.txt
@@ -349,25 +350,25 @@ thesis/quotations.txt
 ~~~
 {:class="err"}
 
-> #### Another Useful Abbreviation
+> #### Otra Abreviación Útil
 > 
-> The shell interprets the character `~` (tilde) at the start of a path to
-> mean "the current user's home directory". For example, if Vlad's home
-> directory is `/home/vlad`, then `~/data` is equivalent to
-> `/home/vlad/data`. This only works if it is the first character in the
-> path: `here/there/~/elsewhere` is *not* `/home/vlad/elsewhere`.
+> La terminal interpreta el caracter `~` (vírgola) al principio de una ruta
+> como "el directorio *home* del usuario actual". Por ejemplo, si el directorio
+> *home* de Vlad es `/home/vlad`, entonces `~/data` es equivalente a
+> `/home/vlad/data`.  Esto sólo funciona si la vírgola es el primer caracter en
+> la ruta: `aqui/alli/~/cualquierlugar` *no* es `/home/vlad/cualquierlugar`.
 
 <div class="keypoints" markdown="1">
 
-#### Key Points
-*   Unix documentation uses '^A' to mean "control-A".
-*   The shell does not have a trash bin: once something is deleted, it's really gone.
-*   Nano is a very simple text editor&mdash;please use something else for real work.
+#### Puntos Clave
+*   La documentación de Unix usa '^A' refiriéndose a "Ctrl-A".
+*   La shell no tiene una papelera de reciclaje: cuando algo se borra, se borra para siempre.
+*   Nano es un editor de texto muy simple&mdash;por favor, usa otro distinto para el trabajo de verdad.
 
 </div>
 
 <div class="challenge" markdown="1">
-What is the output of the closing `ls` command in the sequence shown below?
+En la siguiente sequiencia de comandos ¿qué mostrará el último `ls`?
 
 ~~~
 $ pwd
@@ -382,14 +383,14 @@ $ ls
 </div>
 
 <div class="challenge" markdown="1">
-Suppose that:
+Si:
 
 ~~~
 $ ls -F
 analyzed/  fructose.dat    raw/   sucrose.dat
 ~~~
 
-What command(s) could you run so that the commands below will produce the output shown?
+¿Qué comando(s) deberás ejecutar para que los siguientes comandos muestren lo siguiente?
 
 ~~~
 $ ls
@@ -400,14 +401,15 @@ fructose.dat    sucrose.dat
 </div>
 
 <div class="challenge" markdown="1">
-What does `cp` do when given several filenames and a directory name, as in:
+¿Qué hará `cp` cuando se ejecuta con mltiples nombres de ficheros y un nomre de directorio como
+se muestra a continuación?
 
 ~~~
 $ mkdir backup
 $ cp thesis/citations.txt thesis/quotations.txt backup
 ~~~
 
-What does `cp` do when given three or more filenames, as in:
+¿Qué hará `cp` cuando se le da tres o más nombres de ficheros como en el siguiente ejemplo?
 
 ~~~
 $ ls -F
@@ -417,10 +419,10 @@ $ cp intro.txt methods.txt survey.txt
 </div>
 
 <div class="challenge" markdown="1">
-The command `ls -R` lists the contents of directories recursively,
-i.e., lists their sub-directories, sub-sub-directories, and so on
-in alphabetical order at each level.
-The command `ls -t` lists things by time of last change,
-with most recently changed files or directories first.
-In what order does `ls -R -t` display things?
+El comando `ls -R` muestra el contenido de directorios recursivamente,
+esto es, muestra los subdirectorios, subsubdirectorios, etc
+en orden alfabético en cada nivel.
+El comando `ls -t` lista el contenido dependiendo la la última modificación,
+mostrando los más recientes al comienzo.
+¿En qué orden `ls -R -t` mostrará el contenido?
 </div>
