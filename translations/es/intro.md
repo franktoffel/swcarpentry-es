@@ -1,89 +1,104 @@
----
-layout: lesson
-root: .
-title: Introduction
----
+--- layout: lesson root: . title: Introducción --- 
 
-Here's the dream:
+Este es el sueño: 
 
-> Computers have revolutionized research, and that revolution is only
-> beginning. Every day, scientists and engineers all over the world use
-> them to study things that are too big, too small, too fast, too slow,
-> too expensive, too dangerous, or just too hard to study any other way.
+> Los ordenadores han revolucionado la investigación, y esta 
+> revolución sólo acaba de empezar. Cada día, científicos e 
+> ingenieros de todo el mundo los emplean para estudiar cosas que son 
+> demasiado grandes, demasiado pequeñas, demasiado rápidas, demasiado 
+> lentas, demasiado caras, demasiado peligrosas, o simplemente demasiado 
+> difíciles para estudiarlas de otra manera. 
 
-Now here's the reality:
+Ahora, esta es la realidad: 
 
-> Every day, scientists and engineers all over the world waste time
-> wrestling with computers. Tasks that should take a few moments take
-> hours or days, and many things never work at all. And even when things
-> *do* work, most scientists have no idea how reliable their results
-> are.
+> Cada día, los científicos e ingenieros de todo el mundo desperdician 
+> su tiempo peleándose con los ordenadores. Tareas que deberían 
+> realizarse en unos pocos minutos, tardan horas o días en llevarse a 
+> cabo, y muchas cosas no terminan de funcionar correctamente. E incluso 
+> cuando las cosas funcionan, la mayoría de los científicos no tienen 
+> ni idea de cómo de fiables son los resultados. 
 
-Most of the pain that researchers feel stems from not knowing how to
-develop software systematically, how to tell if their programs are
-working correctly, how to share their work with others (except by
-mailing files to one another), or how to keep track of what they've
-done. This sorry state of affairs persists for four reasons:
+El mayor dolor de cabeza de los investigadores proviene de no saber 
+cómo desarrollar software de forma sistemática, cómo determinar si 
+sus programas están funcionando correctamente, cómo compartir su 
+trabajo con otros (excepto por archivos adjuntos vía email) o cómo 
+monitorizar los avances que han hecho. Esta situación persiste por 
+cuatro razones: 
 
-*   *No room, no time.*
-    Everybody's curriculum is full—there's simply not space to add more
-    about computing without dropping something else.
-*   *No standards.*
-    Reviewers and granting agencies don't check whether software is
-    correct, ask how long it took to write, or count it toward tenure,
-    so there's no incentive for scientists to do better.
-*   *The blind leading the blind.*
-    Senior researchers can't teach the next generation how to do things
-    that they don't know how to do themselves.
-*   *The cult of big iron.*
-    Attention and funding mostly goes to things that politicians and
-    university presidents can brag about on opening day, rather than
-    to the basic skills that almost everyone uses.
+* *Sin espacio, sin tiempo.* La agenda de todo el mundo está llena, 
+simplemente no hay espacio para añadir más sobre computación 
+científica sin tener que decir que no a alguna otra cosa. 
 
-Our goal is to show scientists and engineers how to do more in less
-time and with less pain.  Our lessons have been used by more than four
-thousand learners in over a hundred two-day workshops since the spring
-of 2010.  Here's how they can help:
+* *Sin estándares.* Los reviewers y agencias que subvencionan proyectos 
+no comprueban si el software es el correcto, preguntan cuánto llevó 
+escribirlo o lo valoran según antigüedad del científico, lo que conlleva
+una falta de incentivo para que el software se mejore.
 
-*   If you've ever overwritten the wrong file,
-    we'll show you how to use version control.
-*   If you've ever spent hours typing the same commands over and over again,
-    we'll show you how to automate those tasks using simple scripts.
-*   If you've ever spent an afternoon trying to figure out what the program you wrote last week actually does,
-    we'll show you how to break your code into modules that you can read, debug, and improve piece by piece.
-*   If you've ever spent days copying and pasting data in text files and spreadsheets,
-    we'll show you how a database can do the work for you.
+* *El ciego guiando a los ciegos.* Los investigadores *senior* no pueden 
+enseñar a la siguiente generación cómo hacer cosas que ellos no saben 
+hacer por sí mismos. 
 
-### About Us
+* *El culto al poder.* La atención y los fondos van mayoritariamente 
+hacia cosas de las que los políticos y los rectores de universidades 
+puedan alardear en inauguraciones, más que a las habilidades básicas 
+que casi todo el mundo emplea. 
 
-Software Carpentry is an open source project.
-Our instructors are volunteers,
-and all of our lessons are freely available under the
-[Creative Commons - Attribution License](http://creativecommons.org/licenses/by/3.0/),
-so you can re-use and re-mix them however you want
-so long as you cite us as the original source.
+Nuestra misión es enseñar a los investigadores habilidades básicas 
+informáticas aplicables en el ámbito científico, herramientas y 
+técnicas que ayudarán a hacer más cosas en menos tiempo y de forma 
+menos dolorosa. Los instructores son voluntarios y han impartido más de 
+un centenar de eventos a miles de científicos en los últimos dos años 
+y medio. Todos los materiales de las lecciones son libremente 
+reutilizables bajo la licencia Creative Commons.
 
-Like all volunteer projects,
-Software Carpentry needs your help to grow.
-If you find a bug,
-please file a report in [our GitHub repo](https://github.com/swcarpentry/bc/).
-If you would like to host a workshop,
-please [get in touch](mailto:admin@software-carpentry.org);
-if you'd like to teach,
-we run an [instructor training course](http://teaching.software-carpentry.org);
-and if you'd like to write lessons or exercises,
-please [let us know](mailto:admin@software-carpentry.org).
+Nuestra meta es mostrar a los científicos e ingenieros cómo hacer más 
+en menos tiempo y con menor sufrimiento. Nuestras lecciones han sido 
+empleadas por más de cuatro mil principiantes en alrededor de cien 
+talleres de dos días desde la primavera de 2010. 
 
-To find out more,
-please visit the [http://software-carpentry.org](Software Carpentry web site)
-or read
-[these](http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001745)
-[papers](http://arxiv.org/abs/1307.5448)
-or [our most popular blog posts](http://software-carpentry.org/blog/index.html#popular).
+Así es como te ayudamos: 
 
-### Acknowledgments
+* Si alguna vez has sobreescrito el archivo erróneo, te mostraremos 
+cómo emplear un controlador de versiones (*version control*).
+* Si alguna vez has pasado horas escribiendo los mismos comandos una y otra 
+vez, te mostraremos cómo automatizar estas tareas empleando scripts 
+simples.
+* Si alguna vez has pasado una tarde intentando descubrir que es lo en realidad
+programaste la semana pasada, te mostraremos cómo dividir tu código en módulos
+que puedas leer, mejorarlo bloque por bloque y corregir errores (*bugs*).
+* Si alguna vez has pasado días copiando y pegando información en archivos de texto y 
+hojas de cálculo, te mostraremos cómo una base de datos puede hacer el 
+trabajo por ti. 
 
-Software Carpentry has been made possible by the generous support of:
+### Sobre nosotros 
+
+Software Carpentry es un proyecto *open source* (código abierto). 
+Nuestros instructores son voluntarios y todas las lecciones se pueden reutilizar
+libremente gracias a su licencia
+[Creative Commons - Atribución](http://creativecommons.org/licenses/by/3.0/es/deed.es),
+por lo que puedes reutilizar y modificar todo el material teniendo sólo que citarnos
+como fuente original. 
+
+Como todos los proyectos con voluntarios, Software Carpentry necesita tu 
+ayuda para crecer. Si encuentras un *bug* (fallo), por favor envía un 
+informe a [nuestro repositorio en GitHub](https://github.com/swcarpentry/bc/).
+Si te gustaría realizar un taller en tu centro, por favor
+[ponte en contacto con nosotros](mailto:admin@software-carpentry.org);
+si te gustaría enseñar, tenemos un
+[curso de preparación para instructores](http://teaching.software-carpentry.org);
+y si te gustaría escribir lecciones o ejercicios, por favor
+[háznoslo saber](mailto:admin@software-carpentry.org). 
+
+Para descubrir más, por favor visita [Software-Carpentry.org](http://software-carpentry.org) o lee 
+[estos](http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001745)
+[artículos (*papers*)](http://arxiv.org/abs/1307.5448)
+o [las entradas del blog más populares](http://software-carpentry.org/blog/index.html#popular)
+(enlaces en Inglés).
+
+
+### Agradecimientos 
+
+Software Carpentry ha sido possible gracias al generoso apoyo de: 
 
 *   [Continuum Analytics](http://continuum.io/)
 *   [Indiana University](http://www.indiana.edu)
@@ -106,17 +121,28 @@ Software Carpentry has been made possible by the generous support of:
 *   [The University Consortium for Atmospheric Research](http://www.ucar.edu)
 *   [The University of Toronto](http://www.utoronto.ca)
 
-Special thanks go to Brent Gorda,
-who helped build and teach the first version of this course.
+Gracias especialmente a Brent Gorda, quien ayudó a construir e 
+impartir la primera versión de este curso.
+
+[//]: # (Texto añadido por el traductor)
+
+### Traducción
+
+Las lecciones de este curso han sido traducidas del Inglés por 
+[voluntarios](https://github.com/franktoffel/swcarpentry-es/tree/master/ 
+translations/es#colaboradores) y tienen como objetivo facilitar (que no 
+sustituir) la versión original de las mismas.
+
+[//]: # (Fin del texto añadido por el traductor)
 
 <div align="center" markdown="1">
-This book is dedicated to
+Este libro está dedicado a
 [Betty Jennings](http://en.wikipedia.org/wiki/Jean_Bartik),
 [Betty Snyder](http://en.wikipedia.org/wiki/Betty_Holberton),
 [Fran Bilas](http://en.wikipedia.org/wiki/Frances_Spence),
 [Kay McNulty](http://en.wikipedia.org/wiki/Kathleen_Antonelli),
 [Marlyn Wescoff](http://en.wikipedia.org/wiki/Marlyn_Meltzer),
-and [Ruth Lichterman](http://en.wikipedia.org/wiki/Ruth_Teitelbaum),
+y [Ruth Lichterman](http://en.wikipedia.org/wiki/Ruth_Teitelbaum),
 <br/>
-the original programmers of the [ENIAC](http://en.wikipedia.org/wiki/ENIAC).
+los programadores originales de [ENIAC](http://en.wikipedia.org/wiki/ENIAC).
 </div>
